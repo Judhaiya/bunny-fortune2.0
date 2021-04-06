@@ -1,38 +1,140 @@
-.App {
+body{
+ background-color:lightyellow;
+ position:relative;
+
+ 
+ 
+}
+.title{
   text-align: center;
+  
+  border-bottom: 2px solid darkslategray;
+  width:1000px;
+  margin:2em auto 0;
+  font-family: 'New Tegomin', serif;
+}
+.display-grid {
+  margin :80px 0  0 40px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr ;
+  grid-row-gap:.6em;
+  
+ 
+ 
+}
+.card{
+ 
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  box-shadow: 0px 5px 25px 10px rgba(39, 39, 39, 0.3);
+  background-color: white;
+  transform-style:preserve-3d;
+  height:150px;
+  width:200px;
+  transition:550ms;
+  transform: perspective(1000px) ;
+}
+.card.turn {
+  transform:rotateY(180deg);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.credits {
+  text-align: center;
+  color:rebeccapurple;
+}
+.card .front-side,
+.card .back-side {
+  position:absolute;
+  padding:1rem;
+  backface-visibility: hidden;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.card .back-side {
+  transform:rotateY(180deg);
+}
+.fortune-lines-front{
+  background-color:mediumaquamarine;
+  padding-left:.4em;
+
   }
+  .fortune-lines-back {
+    background-color:palevioletred;
+    padding-left:.4em;
+  }
+/*media queries */
+@media only screen and (min-width:1200px){
+  .card {
+    width:300px;
+    height:300px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.display-grid {
+  grid-row-gap:.6em;
+  grid-column-gap:0;
+}
+.fortune-lines-back,.fortune-lines-front{
+  height:150px;
+  display:flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  border-radius:4px ;
+  font-size:20px;
+  width:150px;
+  padding:.8em;
+  margin-right:.4em;
+  
+}
+.bunny,.bunny-back{
+  width:110px;
+  height: 110px;
+} 
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+ 
+@media only screen and (max-width:640px){
+  .display-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr ;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media only screen and (max-width:500px){
+  .display-grid {
+    text-align: center;
+    display:grid;
+    grid-template-columns:1fr;
+    grid-row-gap:10px;
+  }
+  .card{
+    margin-left:20px;
+  }
+  
+  .title{
+    margin:0 auto;
+    font-size: 14px ;
+    width:50%;
+    height:10%;
+    
+    
+    
+  }
+}
+@media only screen and (max-width:900px){
+  .card-wrapper{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .display-grid{
+    width:70%;
+    margin:20px 0 0;
+    
+  }
+  .card {
+    margin-left:20px ;
   }
 }
